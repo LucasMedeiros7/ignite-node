@@ -1,1 +1,0 @@
-<img src="https://xesque.rocketseat.dev/1571029149847-attachment.png" />
