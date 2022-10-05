@@ -1,5 +1,6 @@
 # API desenvolvida durante o Chapter 2 do Ignite - Nodejs
 ## Aplicação de aluguel de carros. 🚗
+![Badge](https://img.shields.io/badge/STATUS-EM%20ANDAMENTO-red)
 
 <br/>
 <img src="https://xesque.rocketseat.dev/1571029149847-attachment.png" />
