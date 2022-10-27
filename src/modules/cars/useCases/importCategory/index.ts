@@ -1,7 +1,9 @@
 import { ImportCategoryUseCase } from './ImportCategoryUseCase';
 import { ImportCategoryController } from './ImportCategoryController';
+import { CategoriesRepository } from '../../repositories/implementations/CategoriesRepository';
 
-const importCategoryUseCase = new ImportCategoryUseCase();
+const categoriesRepository = CategoriesRepository.getInstance();
+const importCategoryUseCase = new ImportCategoryUseCase(categoriesRepository);
 const importCategoryController = new ImportCategoryController(
   importCategoryUseCase
 );

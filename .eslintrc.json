@@ -12,12 +12,12 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "project": "",
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "plugins": [
     "@typescript-eslint",
-    "eslint-plugin-import-helpers",
     "prettier"
   ],
   "rules": {
