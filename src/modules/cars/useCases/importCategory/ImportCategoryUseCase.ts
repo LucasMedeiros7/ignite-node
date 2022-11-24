@@ -8,9 +8,11 @@ interface IImportCategory {
 }
 
 export class ImportCategoryUseCase {
-  constructor(private categoriesRepository: ICategoriesRepository) { }
+  constructor(private categoriesRepository: ICategoriesRepository) {}
 
-  private loadCategories(file: Express.Multer.File): Promise<IImportCategory[]> {
+  private loadCategories(
+    file: Express.Multer.File
+  ): Promise<IImportCategory[]> {
     return new Promise((resolve, reject) => {
       const categories: IImportCategory[] = [];
       const stream = fs.createReadStream(file.path);
