@@ -5,7 +5,7 @@ import { CreateCategories1669298947615 } from './migrations/1669298947615-Create
 
 const AppDataSource = new DataSource({
   type: 'postgres',
-  host: 'database',
+  host: 'localhost',
   port: 5432,
   username: 'docker',
   password: 'docker',
@@ -16,12 +16,7 @@ const AppDataSource = new DataSource({
   migrations: [CreateCategories1669298947615]
 });
 
-AppDataSource.initialize()
-  .then(() => {
-    console.log('Data Source has been initialized!');
-  })
-  .catch((err) => {
-    console.error('Error during Data Source initialization', err);
-  });
-
+export function createConnection(host = 'database'): Promise<DataSource> {
+  return AppDataSource.setOptions({ host }).initialize();
+}
 export default AppDataSource;
