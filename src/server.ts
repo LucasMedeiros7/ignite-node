@@ -8,7 +8,7 @@ import { router } from './routes';
 import swaggerFile from './swagger.json';
 import { createConnection } from './database/data-source';
 
-createConnection();
+createConnection()
 
 const app = express();
 const PORT = process.env.PORT || 3333;

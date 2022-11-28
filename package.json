@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "typeorm": "ts-node-dev node_modules/typeorm/cli.js",
-    "migration:run": "ts-node-dev node_modules/typeorm/cli.js -d src/database/data-source.ts migration:run",
+    "migration": "ts-node-dev node_modules/typeorm/cli.js -d src/database/data-source.ts migration:run",
     "dev": "ts-node-dev --poll --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts"
   },
   "keywords": [],
