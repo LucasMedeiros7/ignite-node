@@ -14,8 +14,8 @@ const AppDataSource = new DataSource({
   database: 'rentx',
   synchronize: false,
   logging: false,
-  entities: [Category, Specification],
-  migrations: [CreateCategories1669298947615, CreateSpecifications1669477930736]
+  entities: ["src/**/entities/*.ts"],
+  migrations: ["src/**/migrations/*.ts"]
 });
 
 export async function createConnection(host = 'database'): Promise<void> {

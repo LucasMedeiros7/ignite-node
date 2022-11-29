@@ -13,7 +13,7 @@ export class ImportCategoryUseCase {
   constructor(
     @inject('CategoriesRepository')
     private categoriesRepository: ICategoriesRepository
-  ) {}
+  ) { }
 
   private loadCategories(
     file: Express.Multer.File
@@ -40,7 +40,6 @@ export class ImportCategoryUseCase {
 
   async execute(file: Express.Multer.File): Promise<void> {
     const categories = await this.loadCategories(file);
-
     for (const category of categories) {
       const { name, description } = category;
       const existCategory = await this.categoriesRepository.findByName(
