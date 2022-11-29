@@ -1,9 +1,5 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
-import { Category } from '../modules/cars/entities/Category';
-import { Specification } from '../modules/cars/entities/Specifications';
-import { CreateCategories1669298947615 } from './migrations/1669298947615-CreateCategories';
-import { CreateSpecifications1669477930736 } from './migrations/1669477930736-CreateSpecifications';
 
 const AppDataSource = new DataSource({
   type: 'postgres',
