@@ -11,9 +11,13 @@
 - [X] Desenvolvimento de api abordando conceitos de arquitetura limpa
 - [X] Principios SOLID
 - [X] Singleton Pattern
-- [ ] Conceito de Stream
-- [ ] Upload de arquivos
-- [ ] Documentação com swagger
+- [X] Conceito de Stream
+- [X] Upload de arquivos
+- [X] Documentação com swagger
+- [X] Dependecy injection
+- [X] Typeorm
+- [X] Docker
+- [X] Banco de dados Postgres
 
 ### Princípios SOLID 💡
 - S => Single Responsability Principle
