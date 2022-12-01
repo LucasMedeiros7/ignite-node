@@ -9,7 +9,7 @@ interface IRequest {
   password: string;
 }
 
-interface IReponse {
+interface IResponse {
   user: {
     name: string;
     email: string;
@@ -22,9 +22,9 @@ export class AuthenticateUserUseCase {
   constructor(
     @inject('UserRepository')
     private userRepository: IUserRepository
-  ) {}
+  ) { }
 
-  async execute({ email, password }: IRequest): Promise<IReponse> {
+  async execute({ email, password }: IRequest): Promise<IResponse> {
     const user = await this.userRepository.findByEmail(email);
     if (!user) {
       throw new AppError('Email or password incorrect!');

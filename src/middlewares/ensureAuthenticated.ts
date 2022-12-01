@@ -7,11 +7,7 @@ interface TokenPayload {
   sub: string;
 }
 
-async function ensureAuthenticated(
-  request: Request,
-  response: Response,
-  next: NextFunction
-) {
+async function ensureAuthenticated(request: Request, response: Response, next: NextFunction) {
   const { authorization } = request.headers;
   if (!authorization) {
     throw new AppError('Token missing!', 401);
@@ -25,6 +21,7 @@ async function ensureAuthenticated(
     if (!user) {
       throw new AppError('User does not exists!', 401);
     }
+    request.user = { id: userId };
     next();
   } catch {
     throw new AppError('Invalid token!', 401);
