@@ -1,10 +1,7 @@
 import AppDataSource from '../../../../database/data-source'
 import { Repository } from 'typeorm'
 import { Category } from '../../entities/Category'
-import {
-  ICategoriesRepository,
-  ICreateCategoryDTO
-} from '../ICategoriesRepository'
+import { ICategoriesRepository, ICreateCategoryDTO } from '../ICategoriesRepository'
 
 export class CategoriesRepository implements ICategoriesRepository {
   private readonly repository: Repository<Category>
@@ -23,7 +20,7 @@ export class CategoriesRepository implements ICategoriesRepository {
     return categories
   }
 
-  async findByName (name: string): Promise<Category> {
+  async findByName (name: string): Promise<Category | null> {
     const category = await this.repository.findOneBy({ name })
     return category
   }

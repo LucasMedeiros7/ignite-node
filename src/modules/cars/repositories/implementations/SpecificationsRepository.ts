@@ -1,10 +1,7 @@
 import { Repository } from 'typeorm'
 import AppDataSource from '../../../../database/data-source'
 import { Specification } from '../../entities/Specifications'
-import {
-  ICreateSpecificationDTO,
-  ISpecificationRepository
-} from '../ISpecificationsRepository'
+import { ICreateSpecificationDTO, ISpecificationRepository } from '../ISpecificationsRepository'
 
 export class SpecificationRepository implements ISpecificationRepository {
   private readonly repository: Repository<Specification>
@@ -18,7 +15,7 @@ export class SpecificationRepository implements ISpecificationRepository {
     await this.repository.save(specification)
   }
 
-  async findByName (name: string): Promise<Specification> {
+  async findByName (name: string): Promise<Specification | null> {
     const specification = await this.repository.findOneBy({ name })
     return specification
   }

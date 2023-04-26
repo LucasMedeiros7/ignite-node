@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-throw-literal */
 import { inject, injectable } from 'tsyringe'
 import { compare } from 'bcryptjs'
 import { sign } from 'jsonwebtoken'
@@ -27,7 +26,6 @@ export class AuthenticateUserUseCase {
 
   async execute ({ email, password }: IRequest): Promise<IResponse> {
     const user = await this.userRepository.findByEmail(email)
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
     if (!user) {
       throw new AppError('Email or password incorrect!')
     }

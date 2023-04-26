@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 import { Router } from 'express'
 import multer from 'multer'
 import uploadConfig from '../config/upload'
@@ -12,11 +11,6 @@ const createUserController = new CreateUserController()
 const updateUserAvatarController = new UpdateUserAvatarController()
 
 userRoutes.post('/', createUserController.handle)
-userRoutes.patch(
-  '/avatar',
-  ensureAuthenticated,
-  uploadAvatar.single('avatar'),
-  updateUserAvatarController.handle
-)
+userRoutes.patch('/avatar', ensureAuthenticated, uploadAvatar.single('avatar'), updateUserAvatarController.handle)
 
 export { userRoutes }

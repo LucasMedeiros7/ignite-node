@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import AppDataSource from '../../../../database/data-source'
 import { Repository } from 'typeorm'
 import { CreateUserDTO } from '../../dtos/ICreateUserDTO'
@@ -24,12 +25,12 @@ export class UserRepository implements IUserRepository {
     await this.repository.save(user)
   }
 
-  async findByEmail (email: string): Promise<User> {
+  async findByEmail (email: string): Promise<User | null> {
     const user = await this.repository.findOneBy({ email })
     return user
   }
 
-  async findById (userId: string): Promise<User> {
+  async findById (userId: string): Promise<User | null> {
     const user = await this.repository.findOneBy({ id: userId })
     return user
   }
