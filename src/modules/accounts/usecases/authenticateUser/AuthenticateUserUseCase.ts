@@ -1,8 +1,9 @@
-import { inject, injectable } from 'tsyringe'
+import { delay, inject, injectable } from 'tsyringe'
 import { compare } from 'bcryptjs'
 import { sign } from 'jsonwebtoken'
 import { IUserRepository } from '../../repositories/IUserRepository'
 import { AppError } from '../../../../errors/AppError'
+import { UserRepository } from '../../repositories/implementations/UserRepository'
 
 interface IRequest {
   email: string
@@ -20,7 +21,7 @@ interface IResponse {
 @injectable()
 export class AuthenticateUserUseCase {
   constructor (
-    @inject('UserRepository')
+    @inject(delay(() => UserRepository))
     private readonly userRepository: IUserRepository
   ) {}
 

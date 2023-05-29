@@ -1,8 +1,6 @@
-version: '3.9'
-
-networks:
-  rentx-network:
-    driver: bridge
+# networks:
+#   rentx-network:
+#     driver: bridge
 
 services:
   database:
@@ -13,23 +11,23 @@ services:
       - 5432:5432
     environment:
       - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=docker
+      - POSTGRES_PASSWORD=pass
       - POSTGRES_DB=rentx
     volumes:
       - pgdata:/data/postgres
-    networks:
-      - rentx-network
+    # networks:
+    #   - rentx-network
 
-  app:
-    build: .
-    container_name: rentx
-    restart: always
-    ports:
-      - 3333:3333
-    volumes:
-      - .:/usr/app
-    networks:
-      - rentx-network
+#   app:
+#     build: .
+#     container_name: rentx
+#     restart: always
+#     ports:
+#       - 3333:3333
+#     volumes:
+#       - .:/usr/app
+#     networks:
+#       - rentx-network
 
 volumes:
   pgdata:

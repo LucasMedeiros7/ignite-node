@@ -5,9 +5,9 @@ import { UpdateUserAvatarUseCase } from './UpdateUserAvatarUseCase'
 export class UpdateUserAvatarController {
   async handle (request: Request, response: Response): Promise<Response> {
     const { id: userId } = request.user
-    const avatarFile = request.file.filename
+    const file = request.file as Express.Multer.File
     const updateUserAvatarUseCase = container.resolve(UpdateUserAvatarUseCase)
-    await updateUserAvatarUseCase.execute({ userId, avatarFile })
+    await updateUserAvatarUseCase.execute({ userId, avatarFile: file.filename })
     return response.sendStatus(204)
   }
 }

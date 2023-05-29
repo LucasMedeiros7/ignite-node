@@ -1,7 +1,8 @@
-import { inject, injectable } from 'tsyringe'
+import { delay, inject, injectable } from 'tsyringe'
 import { deleteFile } from '../../../../utils/file'
 import { IUserRepository } from '../../repositories/IUserRepository'
 import { User } from '../../entities/User'
+import { UserRepository } from '../../repositories/implementations/UserRepository'
 
 interface IRequest {
   userId: string
@@ -11,7 +12,7 @@ interface IRequest {
 @injectable()
 export class UpdateUserAvatarUseCase {
   constructor (
-    @inject('UserRepository')
+    @inject(delay(() => UserRepository))
     private readonly userRepository: IUserRepository
   ) {}
 

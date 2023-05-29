@@ -1,5 +1,4 @@
 import 'reflect-metadata'
-import './shared/container'
 import 'express-async-errors'
 
 import express, { NextFunction, Request, Response } from 'express'
@@ -11,9 +10,9 @@ import { router } from './routes'
 import { AppError } from './errors/AppError'
 import { createConnection } from './database/data-source'
 
-createConnection()
+createConnection('localhost')
 const app = express()
-const PORT = process.env.PORT ?? 3333
+const PORT = process.env.PORT ?? 3000
 
 app.use(express.json())
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
