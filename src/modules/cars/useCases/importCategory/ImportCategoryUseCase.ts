@@ -1,8 +1,7 @@
 import fs from 'fs'
-import { delay, inject, injectable } from 'tsyringe'
+import { inject, injectable } from 'tsyringe'
 import { parse as csvParse } from 'csv-parse'
 import { ICategoriesRepository } from '../../repositories/ICategoriesRepository'
-import { CategoriesRepository } from '../../repositories/implementations/CategoriesRepository'
 
 interface IImportCategory {
   name: string
@@ -12,7 +11,7 @@ interface IImportCategory {
 @injectable()
 export class ImportCategoryUseCase {
   constructor (
-    @inject(delay(() => CategoriesRepository))
+    @inject('ICategoriesRepository')
     private readonly categoriesRepository: ICategoriesRepository
   ) {}
 

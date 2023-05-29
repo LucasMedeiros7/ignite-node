@@ -1,7 +1,6 @@
 import { ISpecificationRepository } from '../../repositories/ISpecificationsRepository'
 import { inject, injectable } from 'tsyringe'
 import { AppError } from '../../../../errors/AppError'
-import { SpecificationRepository } from '../../repositories/implementations/SpecificationsRepository'
 
 interface IRequest {
   name: string
@@ -11,7 +10,7 @@ interface IRequest {
 @injectable()
 export class CreateSpecificationUseCase {
   constructor (
-    @inject(SpecificationRepository)
+    @inject('ISpecificationRepository')
     private readonly specificationRepository: ISpecificationRepository
   ) {}
 

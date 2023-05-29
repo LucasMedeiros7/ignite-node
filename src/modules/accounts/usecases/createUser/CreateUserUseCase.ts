@@ -1,14 +1,13 @@
 import { hash } from 'bcryptjs'
-import { delay, inject, injectable } from 'tsyringe'
+import { inject, injectable } from 'tsyringe'
 import { AppError } from '../../../../errors/AppError'
 import { CreateUserDTO } from '../../dtos/ICreateUserDTO'
 import { IUserRepository } from '../../repositories/IUserRepository'
-import { UserRepository } from '../../repositories/implementations/UserRepository'
 
 @injectable()
 export class CreateUserUseCase {
   constructor (
-    @inject(delay(() => UserRepository))
+    @inject('IUserRepository')
     private readonly userRepository: IUserRepository
   ) {}
 

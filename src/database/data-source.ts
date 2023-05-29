@@ -6,7 +6,7 @@ const AppDataSource = new DataSource({
   host: 'localhost',
   port: 5432,
   username: 'docker',
-  password: 'pass',
+  password: 'docker',
   database: 'rentx',
   synchronize: false,
   logging: true,

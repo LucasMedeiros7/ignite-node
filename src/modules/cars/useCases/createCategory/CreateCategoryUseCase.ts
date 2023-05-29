@@ -1,7 +1,6 @@
-import { delay, inject, injectable } from 'tsyringe'
+import { inject, injectable } from 'tsyringe'
 import { AppError } from '../../../../errors/AppError'
 import { ICategoriesRepository } from '../../repositories/ICategoriesRepository'
-import { CategoriesRepository } from '../../repositories/implementations/CategoriesRepository'
 
 interface IRequest {
   name: string
@@ -11,7 +10,7 @@ interface IRequest {
 @injectable()
 export class CreateCategoryUseCase {
   constructor (
-    @inject(delay(() => CategoriesRepository))
+    @inject('ICategoriesRepository')
     private readonly categoriesRepository: ICategoriesRepository
   ) {}
 
