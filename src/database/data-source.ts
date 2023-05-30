@@ -14,7 +14,7 @@ const AppDataSource = new DataSource({
   migrations: ['src/**/migrations/*.ts']
 })
 
-export async function createConnection (host = 'database'): Promise<void> {
+export async function createConnection (host: string): Promise<void> {
   AppDataSource.setOptions({ host })
     .initialize()
     .then(() => {

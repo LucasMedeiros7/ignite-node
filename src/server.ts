@@ -11,7 +11,9 @@ import { router } from './routes'
 import { AppError } from './errors/AppError'
 import { createConnection } from './database/data-source'
 
-createConnection('localhost')
+const databaseHost = process.env.DATABASE_HOST ?? 'localhost'
+createConnection(databaseHost)
+
 const app = express()
 const PORT = process.env.PORT ?? 3333
 
