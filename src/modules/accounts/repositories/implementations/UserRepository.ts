@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import AppDataSource from '../../../../database/data-source'
 import { Repository } from 'typeorm'
 import { CreateUserDTO } from '../../dtos/ICreateUserDTO'

@@ -15,14 +15,13 @@ export class ImportCategoryUseCase {
     private readonly categoriesRepository: ICategoriesRepository
   ) {}
 
-  private async loadCategories (
-    file: Express.Multer.File
-  ): Promise<IImportCategory[]> {
+  private async loadCategories (file: Express.Multer.File): Promise<IImportCategory[]> {
     return await new Promise((resolve, reject) => {
       const categories: IImportCategory[] = []
       const stream = fs.createReadStream(file.path)
       const parseFile = csvParse()
       stream.pipe(parseFile)
+
       parseFile
         .on('data', async (line) => {
           const [name, description] = line
