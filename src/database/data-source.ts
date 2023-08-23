@@ -1,9 +1,10 @@
 import 'reflect-metadata'
 import { DataSource } from 'typeorm'
 
+const databaseHost = process.env.DATABASE_HOST ?? 'localhost'
 const AppDataSource = new DataSource({
   type: 'postgres',
-  host: 'localhost',
+  host: databaseHost,
   port: 5432,
   username: 'docker',
   password: 'docker',
@@ -14,8 +15,8 @@ const AppDataSource = new DataSource({
   migrations: ['src/**/migrations/*.ts']
 })
 
-export async function createConnection (host: string): Promise<void> {
-  AppDataSource.setOptions({ host })
+export async function createConnection (): Promise<void> {
+  AppDataSource.setOptions({ host: databaseHost })
     .initialize()
     .then(() => {
       console.log('Data Source has been initialized!')

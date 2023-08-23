@@ -11,8 +11,7 @@ import { router } from './routes'
 import { AppError } from './errors/AppError'
 import { createConnection } from './database/data-source'
 
-const databaseHost = process.env.DATABASE_HOST ?? 'localhost'
-createConnection(databaseHost)
+createConnection()
 
 const app = express()
 const PORT = process.env.PORT ?? 3333
@@ -21,19 +20,19 @@ app.use(express.json())
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 app.use(router)
 
-app.use(
-  (err: Error, request: Request, response: Response, next: NextFunction) => {
+const errorHandlingMiddleware = () => {
+  return (err: Error, _req: Request, res: Response, next: NextFunction) => {
     if (err instanceof AppError) {
-      return response.status(err.statusCode).json({
-        message: err.message
-      })
+      return res.status(err.statusCode).json({ message: err.message })
     }
-    return response.status(500).json({
+    return res.status(500).json({
       status: 'error',
       message: `Internal server error - ${err.message}`
     })
   }
-)
+}
+
+app.use(errorHandlingMiddleware())
 
 app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`)
