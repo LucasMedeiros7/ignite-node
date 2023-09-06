@@ -7,11 +7,7 @@ interface TokenPayload {
   sub: string
 }
 
-async function ensureAuthenticated (
-  request: Request,
-  response: Response,
-  next: NextFunction
-): Promise<void> {
+async function ensureAuthenticated (request: Request, response: Response, next: NextFunction): Promise<void> {
   const { authorization } = request.headers
   if (!authorization) {
     throw new AppError('Token missing!', 401)
