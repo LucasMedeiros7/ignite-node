@@ -1,3 +1,4 @@
+import { AppError } from '../../../../errors/AppError'
 import { CategoryRepositoryInMemory } from '../../repositories/implementations/CategoriesRepositoryInMemory'
 import { CreateCategoryUseCase } from './CreateCategoryUseCase'
 
@@ -22,5 +23,20 @@ describe('Create Category', () => {
     expect(categoryCreated).toHaveProperty('id')
     expect(categoryCreated.name).toBe(categoryPayload.name)
     expect(categoryCreated.description).toBe(categoryPayload.description)
+  })
+
+  it('should not be able to create a new category with an existing name', async () => {
+    const existingCategoryPayload = {
+      name: 'Categoria Existente',
+      description: 'Já existe'
+    }
+    const duplicateCategoryPayload = {
+      name: 'Categoria Existente',
+      description: 'Tentando duplicar'
+    }
+
+    await createCategory.execute(existingCategoryPayload)
+
+    expect(async () => await createCategory.execute(duplicateCategoryPayload)).rejects.toBeInstanceOf(AppError)
   })
 })
