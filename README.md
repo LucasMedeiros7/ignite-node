@@ -52,3 +52,6 @@ Here's a closer look at the SOLID principles, which serve as the foundation for 
 - **Dependency Inversion Principle (D):** Promotes high-level modules depending on abstractions, rather than concrete implementations, enhancing code flexibility and maintainability.
 
 These SOLID principles collectively contribute to the development of software that is easy to understand, extend, and maintain, fostering a more efficient and collaborative development process.
+
+---
+<small>This README was generated with the assistance of ChatGPT, a powerful language model by OpenAI.</small>
