@@ -21,6 +21,7 @@
 - [X] Typeorm
 - [X] Docker
 - [X] Banco de dados Postgres
+- [X] Desenvolvimento orientado a testes
 
 ### Princípios SOLID 💡
 - S => Single Responsability Principle
