@@ -2,7 +2,7 @@ import multer from 'multer'
 import { randomBytes } from 'node:crypto'
 import { resolve } from 'node:path'
 
-export default {
+export const uploadConfig = {
   upload (folder: string) {
     return {
       storage: multer.diskStorage({

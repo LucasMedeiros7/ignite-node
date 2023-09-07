@@ -1,8 +1,9 @@
 import { delay, inject, injectable } from 'tsyringe'
-import { deleteFile } from '../../../../utils/file'
-import { IUserRepository } from '../../repositories/IUserRepository'
-import { User } from '../../entities/User'
-import { UserRepository } from '../../repositories/implementations/UserRepository'
+
+import { User } from '@modules/accounts/entities/User'
+import { UserRepository } from '@modules/accounts/repositories/implementations/UserRepository'
+import { IUserRepository } from '@modules/accounts/repositories/IUserRepository'
+import { deleteFile } from '@utils/file'
 
 interface IRequest {
   userId: string

@@ -1,8 +1,8 @@
-import { AuthenticateUserUseCase } from './AuthenticateUserUseCase'
-import { AppError } from '../../../../errors/AppError'
-import { UserRepositoryInMemory } from '../../repositories/implementations/UserRepositoryInMemory'
+import { CreateUserDTO } from '@modules/accounts/dtos/ICreateUserDTO'
+import { UserRepositoryInMemory } from '@modules/accounts/repositories/implementations/UserRepositoryInMemory'
 import { CreateUserUseCase } from '../createUser/CreateUserUseCase'
-import { CreateUserDTO } from '../../dtos/ICreateUserDTO'
+import { AuthenticateUserUseCase } from './AuthenticateUserUseCase'
+import { AppError } from '@errors/AppError'
 
 describe('Authenticate User Use Case', () => {
   let authenticateUserUseCase: AuthenticateUserUseCase
