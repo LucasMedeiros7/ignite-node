@@ -42,7 +42,7 @@ describe('Authenticate User Use Case', () => {
         email: 'nonexistent@example.com',
         password: 'password'
       })
-    ).rejects.toBeInstanceOf(AppError)
+    ).rejects.toThrow(AppError)
   })
 
   it('should throw an error if the password is incorrect', async () => {
@@ -51,6 +51,6 @@ describe('Authenticate User Use Case', () => {
         email: 'test@example.com',
         password: 'wrong_password'
       })
-    ).rejects.toBeInstanceOf(AppError)
+    ).rejects.toThrow(AppError)
   })
 })
