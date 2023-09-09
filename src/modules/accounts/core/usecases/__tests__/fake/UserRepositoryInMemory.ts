@@ -1,8 +1,8 @@
-import { CreateUserDTO } from '@modules/accounts/dtos/ICreateUserDTO'
-import { User } from '@modules/accounts/entities/User'
-import { IUserRepository } from '../IUserRepository'
+import { UserRepository } from '@modules/accounts/core/repositories/UserRepository.interface'
+import { User } from '@modules/accounts/storage/typeorm/models/User.model'
+import { CreateUserDTO } from '../../dtos/CreateUserDTO'
 
-export class UserRepositoryInMemory implements IUserRepository {
+export class UserRepositoryInMemory implements UserRepository {
   private readonly users: User[] = []
 
   async create (userData: CreateUserDTO): Promise<void> {

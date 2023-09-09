@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import fs from 'node:fs'
 
-export async function deleteFile (filename: string) {
+export async function deleteFile (filename: string): Promise<any> {
   try {
     await fs.promises.stat(filename)
   } catch {

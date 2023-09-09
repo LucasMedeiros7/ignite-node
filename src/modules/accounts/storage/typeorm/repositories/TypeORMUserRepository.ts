@@ -1,11 +1,11 @@
 import { Repository } from 'typeorm'
 import AppDataSource from '@database/data-source'
 
-import { User } from '@modules/accounts/entities/User'
-import { CreateUserDTO } from '@modules/accounts/dtos/ICreateUserDTO'
-import { IUserRepository } from '../IUserRepository'
+import { User } from '../models/User.model'
+import { CreateUserDTO } from '@modules/accounts/usecases/dtos/CreateUserDTO'
+import { UserRepository } from '@modules/accounts/core/repositories/UserRepository.interface'
 
-export class UserRepository implements IUserRepository {
+export class TypeORMUserRepository implements UserRepository {
   private readonly repository: Repository<User>
 
   constructor () {

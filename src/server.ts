@@ -1,5 +1,5 @@
 import 'reflect-metadata'
-import './shared/container'
+import './shared/module/container'
 import 'express-async-errors'
 
 import express, { NextFunction, Request, Response } from 'express'
@@ -7,9 +7,9 @@ import express, { NextFunction, Request, Response } from 'express'
 import swaggerUi from 'swagger-ui-express'
 import swaggerFile from './swagger.json'
 
-import { router } from './routes'
+import { router } from './shared/http/routes'
 import { createConnection } from '@database/data-source'
-import { AppError } from '@errors/AppError'
+import { AppError } from '@shared/errors/AppError'
 
 createConnection()
 

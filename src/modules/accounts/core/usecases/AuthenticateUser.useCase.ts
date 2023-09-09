@@ -1,16 +1,15 @@
-import 'reflect-metadata'
 import { inject, injectable } from 'tsyringe'
 import { compare } from 'bcryptjs'
 import { sign } from 'jsonwebtoken'
-import { IUserRepository } from '@modules/accounts/repositories/IUserRepository'
-import { AppError } from '@errors/AppError'
+import { AppError } from '@shared/errors/AppError'
+import { UserRepository } from '../repositories/UserRepository.interface'
 
-interface IRequest {
+interface AuthUserRequest {
   email: string
   password: string
 }
 
-interface IResponse {
+interface AuthUserResponse {
   user: {
     name: string
     email: string
@@ -22,10 +21,10 @@ interface IResponse {
 export class AuthenticateUserUseCase {
   constructor (
     @inject('IUserRepository')
-    private readonly userRepository: IUserRepository
+    private readonly userRepository: UserRepository
   ) {}
 
-  async execute ({ email, password }: IRequest): Promise<IResponse> {
+  async execute ({ email, password }: AuthUserRequest): Promise<AuthUserResponse> {
     const user = await this.userRepository.findByEmail(email)
     if (!user) {
       throw new AppError('Email or password incorrect!')

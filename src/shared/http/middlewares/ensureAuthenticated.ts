@@ -1,8 +1,8 @@
 import { verify } from 'jsonwebtoken'
 import { NextFunction, Request, Response } from 'express'
 
-import { AppError } from '@errors/AppError'
-import { UserRepository } from '@modules/accounts/repositories/implementations/UserRepository'
+import { TypeORMUserRepository } from '@modules/accounts/storage/typeorm/repositories/TypeORMUserRepository'
+import { AppError } from '@shared/errors/AppError'
 
 interface TokenPayload {
   sub: string
@@ -17,7 +17,7 @@ async function ensureAuthenticated (request: Request, response: Response, next: 
   const secret = '3e44cae1aa332b5813823f09f7c85bd8'
   try {
     const { sub: userId } = verify(token, secret) as TokenPayload
-    const userRepository = new UserRepository()
+    const userRepository = new TypeORMUserRepository()
     const user = await userRepository.findById(userId)
     if (!user) {
       throw new AppError('User does not exists!', 401)

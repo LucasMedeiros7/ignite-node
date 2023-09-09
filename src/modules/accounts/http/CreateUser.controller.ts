@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import { Request, Response } from 'express'
 import { container } from 'tsyringe'
-import { CreateUserUseCase } from './CreateUserUseCase'
+import { CreateUserUseCase } from '../usecases/CreateUser.useCase'
 
 export class CreateUserController {
   async handle (request: Request, response: Response): Promise<Response> {

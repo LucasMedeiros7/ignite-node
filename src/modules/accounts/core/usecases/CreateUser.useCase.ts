@@ -1,15 +1,15 @@
 import { hash } from 'bcryptjs'
 import { inject, injectable } from 'tsyringe'
 
-import { AppError } from '@errors/AppError'
-import { CreateUserDTO } from '@modules/accounts/dtos/ICreateUserDTO'
-import { IUserRepository } from '@modules/accounts/repositories/IUserRepository'
+import { AppError } from '@shared/errors/AppError'
+import { CreateUserDTO } from './dtos/CreateUserDTO'
+import { UserRepository } from '../repositories/UserRepository.interface'
 
 @injectable()
 export class CreateUserUseCase {
   constructor (
     @inject('IUserRepository')
-    private readonly userRepository: IUserRepository
+    private readonly userRepository: UserRepository
   ) {}
 
   async execute (userData: CreateUserDTO): Promise<void> {
