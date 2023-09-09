@@ -1,8 +1,8 @@
 import { Repository } from 'typeorm'
-import AppDataSource from '@database/data-source'
+import AppDataSource from '@shared/module/typeorm/data-source'
 
 import { User } from '../models/User.model'
-import { CreateUserDTO } from '@modules/accounts/usecases/dtos/CreateUserDTO'
+import { CreateUserDTO } from '@modules/accounts/core/usecases/dtos/CreateUserDTO'
 import { UserRepository } from '@modules/accounts/core/repositories/UserRepository.interface'
 
 export class TypeORMUserRepository implements UserRepository {

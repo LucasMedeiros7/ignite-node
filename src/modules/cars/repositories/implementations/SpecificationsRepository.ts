@@ -1,5 +1,5 @@
 import { Repository } from 'typeorm'
-import AppDataSource from '../../../../database/data-source'
+import AppDataSource from '../../../../shared/module/typeorm/data-source'
 import { Specification } from '../../entities/Specifications'
 import { ICreateSpecificationDTO, ISpecificationRepository } from '../ISpecificationsRepository'
 

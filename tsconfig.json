@@ -17,9 +17,6 @@
       "@modules/*": ["modules/*"],
       "@shared/*": ["shared/*"],
       "@utils/*": ["utils/*"],
-      "@errors/*": ["errors/*"],
-      "@database/*": ["database/*"],
-      "@middlewares/*": ["middlewares/*"]
     }
   },
   "include": [

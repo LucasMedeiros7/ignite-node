@@ -8,8 +8,8 @@ import swaggerUi from 'swagger-ui-express'
 import swaggerFile from './swagger.json'
 
 import { router } from './shared/http/routes'
-import { createConnection } from '@database/data-source'
 import { AppError } from '@shared/errors/AppError'
+import { createConnection } from '@shared/module/typeorm/data-source'
 
 createConnection()
 
