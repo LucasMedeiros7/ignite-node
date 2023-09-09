@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import { Repository } from 'typeorm'
 import AppDataSource from '@shared/module/typeorm/data-source'
 

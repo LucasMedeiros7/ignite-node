@@ -1,6 +1,6 @@
 import AppDataSource from '../../../../shared/module/typeorm/data-source'
 import { Repository } from 'typeorm'
-import { Category } from '../../entities/Category'
+import { Category } from '../../models/Category'
 import { ICategoriesRepository, ICreateCategoryDTO } from '../ICategoriesRepository'
 
 export class CategoriesRepository implements ICategoriesRepository {

@@ -11,7 +11,7 @@ const AppDataSource = new DataSource({
   database: 'rentx',
   synchronize: false,
   logging: true,
-  entities: ['src/**/entities/*.ts'],
+  entities: ['src/**/models/*.ts'],
   migrations: ['src/**/migrations/*.ts']
 })
 

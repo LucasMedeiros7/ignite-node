@@ -1,7 +1,8 @@
 import 'reflect-metadata'
+
 import { CreateUserUseCase } from '../CreateUser.useCase'
 import { AuthenticateUserUseCase } from '../AuthenticateUser.useCase'
-import { AppError } from '@shared/errors/AppError'
+import { AppError } from '../../../../../shared/errors/AppError'
 import { CreateUserDTO } from '../dtos/CreateUserDTO'
 import { UserRepositoryInMemory } from './fake/UserRepositoryInMemory'
 

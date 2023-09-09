@@ -14,13 +14,19 @@
     "skipLibCheck": true,
     "baseUrl": "./src/",
     "paths": {
-      "@modules/*": ["modules/*"],
-      "@shared/*": ["shared/*"],
-      "@utils/*": ["utils/*"],
+      "@modules/*": [
+        "modules/*"
+      ],
+      "@shared/*": [
+        "shared/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
     }
   },
   "include": [
     "src/**/*.ts",
-    "*.ts"
+    "jest.config.ts"
   ]
 }
