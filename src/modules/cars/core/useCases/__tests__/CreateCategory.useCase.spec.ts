@@ -1,6 +1,8 @@
+import 'reflect-metadata'
+
 import { AppError } from '@shared/errors/AppError'
-import { CategoryRepositoryInMemory } from '../../repositories/implementations/CategoriesRepositoryInMemory'
-import { CreateCategoryUseCase } from './CreateCategoryUseCase'
+import { CreateCategoryUseCase } from '../CreateCategory.useCase'
+import { CategoryRepositoryInMemory } from './fakes/CategoriesRepositoryInMemory'
 
 describe('Create Category', () => {
   let categoriesRepositoryInMemory: CategoryRepositoryInMemory
@@ -37,6 +39,8 @@ describe('Create Category', () => {
 
     await createCategory.execute(existingCategoryPayload)
 
-    expect(async () => await createCategory.execute(duplicateCategoryPayload)).rejects.toBeInstanceOf(AppError)
+    await expect(
+      createCategory.execute(duplicateCategoryPayload)
+    ).rejects.toThrow(AppError)
   })
 })

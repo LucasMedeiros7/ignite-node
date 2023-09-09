@@ -1,7 +1,8 @@
-import { Category } from '../../models/Category'
-import { ICategoriesRepository, ICreateCategoryDTO } from '../ICategoriesRepository'
+import { Category } from '../../../../storage/typeorm/models/Category.model'
+import { CreateCategoryDTO } from '@modules/cars/core/dtos/CreateCategoryDTO'
+import { CategoriesRepository } from '@modules/cars/core/repositories/CategoriesRepository.interface'
 
-export class CategoryRepositoryInMemory implements ICategoriesRepository {
+export class CategoryRepositoryInMemory implements CategoriesRepository {
   categories: Category[] = []
 
   async findByName (name: string): Promise<Category> {
@@ -14,7 +15,7 @@ export class CategoryRepositoryInMemory implements ICategoriesRepository {
     return allCategories
   }
 
-  async create ({ name, description }: ICreateCategoryDTO): Promise<void> {
+  async create ({ name, description }: CreateCategoryDTO): Promise<void> {
     const category = new Category()
     Object.assign(category, {
       name,

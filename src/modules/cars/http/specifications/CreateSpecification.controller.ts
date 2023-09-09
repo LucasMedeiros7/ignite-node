@@ -1,6 +1,6 @@
+import { CreateSpecificationUseCase } from '@modules/cars/core/useCases/CreateSpecification.useCase'
 import { Request, Response } from 'express'
 import { container } from 'tsyringe'
-import { CreateSpecificationUseCase } from './CreateSpecificationUseCase'
 
 export class CreateSpecificationController {
   async handle (request: Request, response: Response): Promise<Response> {

@@ -1,9 +1,9 @@
 import { container } from 'tsyringe'
 
-import { CategoriesRepository } from '@modules/cars/repositories/implementations/CategoriesRepository'
-import { SpecificationRepository } from '@modules/cars/repositories/implementations/SpecificationsRepository'
 import { TypeORMUserRepository } from '@modules/accounts/storage/typeorm/repositories/TypeORMUserRepository'
+import { TypeORMCategoriesRepository } from '@modules/cars/storage/typeorm/repositories/TypeORMCategoriesRepository'
+import { TypeORMSpecificationRepository } from '@modules/cars/storage/typeorm/repositories/TypeORMSpecificationsRepository'
 
-container.register('ICategoriesRepository', { useClass: CategoriesRepository })
-container.register('ISpecificationRepository', { useClass: SpecificationRepository })
+container.register('ICategoriesRepository', { useClass: TypeORMCategoriesRepository })
+container.register('ISpecificationRepository', { useClass: TypeORMSpecificationRepository })
 container.register('IUserRepository', { useClass: TypeORMUserRepository })

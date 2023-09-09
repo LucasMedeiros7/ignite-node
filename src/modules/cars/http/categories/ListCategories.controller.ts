@@ -1,6 +1,6 @@
-import { Request, Response } from 'express'
 import { container } from 'tsyringe'
-import { ListCategoriesUseCase } from './ListCategoriesUseCase'
+import { Request, Response } from 'express'
+import { ListCategoriesUseCase } from '@modules/cars/core/useCases/ListCategories.useCase'
 
 export class ListCategoriesController {
   async handle (_request: Request, response: Response): Promise<Response> {

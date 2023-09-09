@@ -1,16 +1,17 @@
-import AppDataSource from '../../../../shared/module/typeorm/data-source'
 import { Repository } from 'typeorm'
-import { Category } from '../../models/Category'
-import { ICategoriesRepository, ICreateCategoryDTO } from '../ICategoriesRepository'
+import AppDataSource from '@shared/module/typeorm/data-source'
+import { Category } from '../models/Category.model'
+import { CreateCategoryDTO } from '@modules/cars/core/dtos/CreateCategoryDTO'
+import { CategoriesRepository } from '@modules/cars/core/repositories/CategoriesRepository.interface'
 
-export class CategoriesRepository implements ICategoriesRepository {
+export class TypeORMCategoriesRepository implements CategoriesRepository {
   private readonly repository: Repository<Category>
 
   constructor () {
     this.repository = AppDataSource.getRepository(Category)
   }
 
-  async create ({ name, description }: ICreateCategoryDTO): Promise<void> {
+  async create ({ name, description }: CreateCategoryDTO): Promise<void> {
     const category = this.repository.create({ description, name })
     await this.repository.save(category)
   }

@@ -1,16 +1,17 @@
+import AppDataSource from '@shared/module/typeorm/data-source'
 import { Repository } from 'typeorm'
-import AppDataSource from '../../../../shared/module/typeorm/data-source'
-import { Specification } from '../../models/Specifications'
-import { ICreateSpecificationDTO, ISpecificationRepository } from '../ISpecificationsRepository'
+import { Specification } from '../models/Specifications.model'
+import { CreateSpecificationDTO } from '@modules/cars/core/dtos/CreateSpecificationDTO'
+import { SpecificationRepository } from '@modules/cars/core/repositories/SpecificationsRepository.interface'
 
-export class SpecificationRepository implements ISpecificationRepository {
+export class TypeORMSpecificationRepository implements SpecificationRepository {
   private readonly repository: Repository<Specification>
 
   constructor () {
     this.repository = AppDataSource.getRepository(Specification)
   }
 
-  async create ({ name, description }: ICreateSpecificationDTO): Promise<void> {
+  async create ({ name, description }: CreateSpecificationDTO): Promise<void> {
     const specification = this.repository.create({ name, description })
     await this.repository.save(specification)
   }

@@ -1,9 +1,9 @@
 import fs from 'fs'
 import { inject, injectable } from 'tsyringe'
 import { parse as csvParse } from 'csv-parse'
-import { ICategoriesRepository } from '@modules/cars/repositories/ICategoriesRepository'
+import { CategoriesRepository } from '../repositories/CategoriesRepository.interface'
 
-interface IImportCategory {
+interface ImportCategoryRequest {
   name: string
   description: string
 }
@@ -12,12 +12,12 @@ interface IImportCategory {
 export class ImportCategoryUseCase {
   constructor (
     @inject('ICategoriesRepository')
-    private readonly categoriesRepository: ICategoriesRepository
+    private readonly categoriesRepository: CategoriesRepository
   ) {}
 
-  private async loadCategories (file: Express.Multer.File): Promise<IImportCategory[]> {
+  private async loadCategories (file: Express.Multer.File): Promise<ImportCategoryRequest[]> {
     return await new Promise((resolve, reject) => {
-      const categories: IImportCategory[] = []
+      const categories: ImportCategoryRequest[] = []
       const stream = fs.createReadStream(file.path)
       const parseFile = csvParse()
       stream.pipe(parseFile)
