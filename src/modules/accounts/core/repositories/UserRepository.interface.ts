@@ -1,5 +1,5 @@
 import { User } from '../../storage/typeorm/models/User.model'
-import { CreateUserDTO } from '../usecases/dtos/CreateUserDTO'
+import { CreateUserDTO } from '../dtos/CreateUserDTO'
 
 export interface UserRepository {
   create: (userData: CreateUserDTO) => Promise<void>

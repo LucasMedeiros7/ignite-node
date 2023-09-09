@@ -1,6 +1,6 @@
 import { UserRepository } from '@modules/accounts/core/repositories/UserRepository.interface'
 import { User } from '@modules/accounts/storage/typeorm/models/User.model'
-import { CreateUserDTO } from '../../dtos/CreateUserDTO'
+import { CreateUserDTO } from '../../../dtos/CreateUserDTO'
 
 export class UserRepositoryInMemory implements UserRepository {
   private readonly users: User[] = []

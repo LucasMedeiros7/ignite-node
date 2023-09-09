@@ -2,7 +2,7 @@ import { hash } from 'bcryptjs'
 import { inject, injectable } from 'tsyringe'
 
 import { AppError } from '@shared/errors/AppError'
-import { CreateUserDTO } from './dtos/CreateUserDTO'
+import { CreateUserDTO } from '../dtos/CreateUserDTO'
 import { UserRepository } from '../repositories/UserRepository.interface'
 
 @injectable()

@@ -3,7 +3,7 @@ import 'reflect-metadata'
 import { CreateUserUseCase } from '../CreateUser.useCase'
 import { AuthenticateUserUseCase } from '../AuthenticateUser.useCase'
 import { AppError } from '../../../../../shared/errors/AppError'
-import { CreateUserDTO } from '../dtos/CreateUserDTO'
+import { CreateUserDTO } from '../../dtos/CreateUserDTO'
 import { UserRepositoryInMemory } from './fake/UserRepositoryInMemory'
 
 describe('Authenticate User Use Case', () => {
