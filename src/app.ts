@@ -1,5 +1,5 @@
 import 'reflect-metadata'
-import './shared/module/container'
+import './shared/infra/container'
 import 'express-async-errors'
 
 import express, { NextFunction, Request, Response } from 'express'
