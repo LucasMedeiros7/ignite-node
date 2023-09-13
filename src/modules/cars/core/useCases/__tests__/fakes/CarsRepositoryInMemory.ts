@@ -13,9 +13,10 @@ export class CarsRepositoryInMemory implements CarsRepository {
     return this.cars.find(car => car.license_plate === licensePlate)
   }
 
-  async create (data: CreateCarDTO): Promise<void> {
+  async create (data: CreateCarDTO): Promise<Car> {
     const car = new Car()
     Object.assign(car, { ...data })
     this.cars.push(car)
+    return car
   }
 }

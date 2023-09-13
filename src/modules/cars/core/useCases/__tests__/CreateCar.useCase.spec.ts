@@ -23,13 +23,17 @@ describe('Create Car', () => {
   })
 
   it('should be able to create a new car', async () => {
-    await createCarUseCase.execute(newCar)
-    const carCreated = await carRepository.findByLicensePlate(newCar.license_plate)
+    const carCreated = await createCarUseCase.execute(newCar)
     expect(carCreated?.license_plate).toBe('FAKE-1234')
   })
 
   it('should not be able to create a new car with an existing license plate', async () => {
     await createCarUseCase.execute(newCar)
     await expect(createCarUseCase.execute(newCar)).rejects.toThrow(AppError)
+  })
+
+  it('should be create a car and available must be true', async () => {
+    const carCreated = await createCarUseCase.execute(newCar)
+    expect(carCreated?.available).toBeTruthy()
   })
 })
