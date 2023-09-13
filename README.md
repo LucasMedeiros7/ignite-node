@@ -1,4 +1,7 @@
 # Rocketseat's Ignite - Node.js Course Project API 🚀
+
+### [Requirements of application](requirements/requirements.md)
+
 ## Car Rental Application 🚗
 ![Node.js](https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=Node.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=for-the-badge&logo=TypeScript&logoColor=white)
