@@ -1,7 +1,7 @@
 import 'reflect-metadata'
 
 import { AppError } from '@shared/errors/AppError'
-import { CreateCategoryUseCase } from '../CreateCategory.useCase'
+import { CreateCategoryUseCase } from '../categories/CreateCategory.useCase'
 import { CategoryRepositoryInMemory } from './fakes/CategoriesRepositoryInMemory'
 
 describe('Create Category', () => {

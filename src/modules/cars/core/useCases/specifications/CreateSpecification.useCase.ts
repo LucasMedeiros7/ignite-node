@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe'
 import { AppError } from '@shared/errors/AppError'
-import { SpecificationRepository } from '../repositories/SpecificationsRepository.interface'
+import { SpecificationRepository } from '../../repositories/SpecificationsRepository.interface'
 
 interface CreateSpecificationRequest {
   name: string

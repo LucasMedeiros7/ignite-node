@@ -1,6 +1,6 @@
 import { AppError } from '@shared/errors/AppError'
 import { inject, injectable } from 'tsyringe'
-import { CategoriesRepository } from '../repositories/CategoriesRepository.interface'
+import { CategoriesRepository } from '../../repositories/CategoriesRepository.interface'
 
 interface CreateCategoryRequest {
   name: string
