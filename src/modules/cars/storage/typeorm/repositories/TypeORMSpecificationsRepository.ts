@@ -1,5 +1,5 @@
-import AppDataSource from '@shared/module/typeorm/data-source'
 import { Repository } from 'typeorm'
+import AppDataSource from '@shared/infra/typeorm/data-source'
 import { Specification } from '../models/Specifications.model'
 import { CreateSpecificationDTO } from '@modules/cars/core/dtos/CreateSpecificationDTO'
 import { SpecificationRepository } from '@modules/cars/core/repositories/SpecificationsRepository.interface'

@@ -1,6 +1,6 @@
 import { Repository } from 'typeorm'
-import AppDataSource from '@shared/module/typeorm/data-source'
 import { Category } from '../models/Category.model'
+import AppDataSource from '@shared/infra/typeorm/data-source'
 import { CreateCategoryDTO } from '@modules/cars/core/dtos/CreateCategoryDTO'
 import { CategoriesRepository } from '@modules/cars/core/repositories/CategoriesRepository.interface'
 
