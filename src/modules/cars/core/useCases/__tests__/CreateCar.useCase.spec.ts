@@ -27,7 +27,7 @@ describe('Create Car', () => {
     expect(carCreated?.license_plate).toBe('FAKE-1234')
   })
 
-  it('should not be able to create a new car with an existing license plate', async () => {
+  it('should not be possible to register a car with an existing license plate', async () => {
     await createCarUseCase.execute({
       ...newCar,
       license_plate: 'DUPLICATE_LICENSE_PLATE'
@@ -38,7 +38,7 @@ describe('Create Car', () => {
     })).rejects.toThrow(AppError)
   })
 
-  it('should be create a car and available must be true', async () => {
+  it('should be registered with available true by default.', async () => {
     const carCreated = await createCarUseCase.execute({
       ...newCar,
       name: 'FAKE_CAR_NAME_AVAILABLE'

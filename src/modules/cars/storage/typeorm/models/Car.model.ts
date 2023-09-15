@@ -1,25 +1,39 @@
+import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm'
 import { v4 as uuidv4 } from 'uuid'
+import { Category } from './Category.model'
 
+@Entity('cars')
 export class Car {
-  id: string
+  @Column()
+    id: string
 
-  name: string
+  @Column()
+    name: string
 
-  description: string
+  @Column()
+    description: string
 
-  daily_rate: number
+  @Column()
+    daily_rate: number
 
-  available: boolean
+  @Column()
+    available = true
 
-  license_plate: string
+  @Column()
+    license_plate: string
 
-  fine_amount: number
+  @Column()
+    fine_amount: number
 
-  brand: string
+  @Column()
+    brand: string
 
-  category_id: string
+  @ManyToOne(() => Category)
+  @JoinColumn({ name: 'category_id' })
+    category_id: string
 
-  created_at: Date
+  @Column()
+    created_at: Date
 
   constructor () {
     this.id = this.id ?? uuidv4()

@@ -9,6 +9,10 @@ export class CarsRepositoryInMemory implements CarsRepository {
     this.cars = []
   }
 
+  async findAvailables (): Promise<Car[]> {
+    return this.cars.filter(car => car.available)
+  }
+
   async findByLicensePlate (licensePlate: string): Promise<Car | undefined> {
     return this.cars.find(car => car.license_plate === licensePlate)
   }
