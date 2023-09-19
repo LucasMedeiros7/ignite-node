@@ -1,10 +1,10 @@
 import 'reflect-metadata'
 import { Repository } from 'typeorm'
-import AppDataSource from '@shared/module/typeorm/data-source'
 
 import { User } from '../models/User.model'
 import { CreateUserDTO } from '@modules/accounts/core/dtos/CreateUserDTO'
 import { UserRepository } from '@modules/accounts/core/repositories/UserRepository.interface'
+import AppDataSource from '@shared/infra/typeorm/data-source'
 
 export class TypeORMUserRepository implements UserRepository {
   private readonly repository: Repository<User>

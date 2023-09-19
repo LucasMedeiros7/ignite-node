@@ -9,7 +9,7 @@ import swaggerFile from './swagger.json'
 
 import { router } from './shared/http/routes'
 import { AppError } from '@shared/errors/AppError'
-import { createConnection } from '@shared/module/typeorm/data-source'
+import { createConnection } from '@shared/infra/typeorm/data-source'
 
 createConnection()
 
