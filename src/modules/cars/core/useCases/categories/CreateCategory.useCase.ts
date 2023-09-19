@@ -10,7 +10,7 @@ interface CreateCategoryRequest {
 @injectable()
 export class CreateCategoryUseCase {
   constructor (
-    @inject('ICategoriesRepository')
+    @inject('CategoriesRepository')
     private readonly categoriesRepository: CategoriesRepository
   ) {}
 

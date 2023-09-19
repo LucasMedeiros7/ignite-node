@@ -20,7 +20,7 @@ interface AuthUserResponse {
 @injectable()
 export class AuthenticateUserUseCase {
   constructor (
-    @inject('IUserRepository')
+    @inject('UserRepository')
     private readonly userRepository: UserRepository
   ) {}
 

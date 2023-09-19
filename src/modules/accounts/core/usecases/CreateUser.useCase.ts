@@ -8,7 +8,7 @@ import { UserRepository } from '../repositories/UserRepository.interface'
 @injectable()
 export class CreateUserUseCase {
   constructor (
-    @inject('IUserRepository')
+    @inject('UserRepository')
     private readonly userRepository: UserRepository
   ) {}
 

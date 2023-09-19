@@ -10,7 +10,7 @@ interface CreateSpecificationRequest {
 @injectable()
 export class CreateSpecificationUseCase {
   constructor (
-    @inject('ISpecificationRepository')
+    @inject('SpecificationRepository')
     private readonly specificationRepository: SpecificationRepository
   ) {}
 
