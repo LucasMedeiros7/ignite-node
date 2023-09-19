@@ -57,7 +57,7 @@ export class CreateCars1616767002011 implements MigrationInterface {
     await queryRunner.createForeignKey(
       'cars',
       new TableForeignKey({
-        // name: 'FKCategoryCar',
+        name: 'FKCategoryCar',
         columnNames: ['category_id'],
         referencedTableName: 'categories',
         referencedColumnNames: ['id'],

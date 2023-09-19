@@ -1,11 +1,11 @@
-import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm'
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm'
 import { v4 as uuidv4 } from 'uuid'
 import { Category } from './Category.model'
 
 @Entity('cars')
 export class Car {
-  @Column()
-    id: string
+  @PrimaryColumn()
+    id?: string
 
   @Column()
     name: string
@@ -17,7 +17,7 @@ export class Car {
     daily_rate: number
 
   @Column()
-    available = true
+    available: boolean
 
   @Column()
     license_plate: string

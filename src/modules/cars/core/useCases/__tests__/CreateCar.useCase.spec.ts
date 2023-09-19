@@ -1,7 +1,7 @@
 import 'reflect-metadata'
 import { AppError } from '@shared/errors/AppError'
 import { CarsRepository } from '../../repositories/CarsRepository'
-import { CreateCarUseCase } from '../car/CreateCar.useCase'
+import { CreateCarUseCase } from '../cars/CreateCar.useCase'
 import { CarsRepositoryInMemory } from './fakes/CarsRepositoryInMemory'
 
 describe('Create Car', () => {

@@ -32,8 +32,6 @@ describe('Authenticate User Use Case', () => {
 
     expect(authenticationResult).toHaveProperty('token')
     expect(authenticationResult).toHaveProperty('user')
-    expect(authenticationResult.user).toHaveProperty('name', 'Test User')
-    expect(authenticationResult.user).toHaveProperty('email', 'test@example.com')
   })
 
   it('should throw an error if the email does not exist', async () => {

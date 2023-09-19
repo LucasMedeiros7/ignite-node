@@ -1,8 +1,8 @@
 import 'reflect-metadata'
 import { CarsRepository } from '../../repositories/CarsRepository'
-import { CreateCarUseCase } from '../car/CreateCar.useCase'
+import { CreateCarUseCase } from '../cars/CreateCar.useCase'
 import { CarsRepositoryInMemory } from './fakes/CarsRepositoryInMemory'
-import { ListAvailableCarsUseCase } from '../car/ListAvailableCars.useCase'
+import { ListAvailableCarsUseCase } from '../cars/ListAvailableCars.useCase'
 
 describe('Create Car', () => {
   let createCarUseCase: CreateCarUseCase
