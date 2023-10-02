@@ -6,13 +6,15 @@ import { CarsRepository } from '../../repositories/CarsRepository'
 
 @injectable()
 export class CreateCarUseCase {
-  constructor (
+  constructor(
     @inject('CarsRepository')
-    private readonly carsRepository: CarsRepository
-  ) { }
+    private readonly carsRepository: CarsRepository,
+  ) {}
 
-  async execute (carData: CreateCarDTO): Promise < Car > {
-    const carAlreadyExists = await this.carsRepository.findByLicensePlate(carData.license_plate)
+  async execute(carData: CreateCarDTO): Promise<Car> {
+    const carAlreadyExists = await this.carsRepository.findByLicensePlate(
+      carData.license_plate,
+    )
     if (carAlreadyExists) {
       throw new AppError('A car with this license plate already exists!')
     }

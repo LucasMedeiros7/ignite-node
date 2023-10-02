@@ -14,7 +14,7 @@ describe('Create Car', () => {
     license_plate: 'FAKE-1234',
     fine_amount: 60,
     brand: 'fake_brand',
-    category_id: 'category'
+    category_id: 'category',
   }
 
   beforeEach(() => {
@@ -30,18 +30,20 @@ describe('Create Car', () => {
   it('should not be possible to register a car with an existing license plate', async () => {
     await createCarUseCase.execute({
       ...newCar,
-      license_plate: 'DUPLICATE_LICENSE_PLATE'
+      license_plate: 'DUPLICATE_LICENSE_PLATE',
     })
-    await expect(createCarUseCase.execute({
-      ...newCar,
-      license_plate: 'DUPLICATE_LICENSE_PLATE'
-    })).rejects.toThrow(AppError)
+    await expect(
+      createCarUseCase.execute({
+        ...newCar,
+        license_plate: 'DUPLICATE_LICENSE_PLATE',
+      }),
+    ).rejects.toThrow(AppError)
   })
 
   it('should be registered with available true by default.', async () => {
     const carCreated = await createCarUseCase.execute({
       ...newCar,
-      name: 'FAKE_CAR_NAME_AVAILABLE'
+      name: 'FAKE_CAR_NAME_AVAILABLE',
     })
     expect(carCreated?.available).toBeTruthy()
   })

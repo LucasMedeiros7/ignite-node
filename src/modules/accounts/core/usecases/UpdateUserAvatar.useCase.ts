@@ -11,13 +11,13 @@ interface UpdateUserRequest {
 
 @injectable()
 export class UpdateUserAvatarUseCase {
-  constructor (
+  constructor(
     @inject('UserRepository')
-    private readonly userRepository: UserRepository
+    private readonly userRepository: UserRepository,
   ) {}
 
-  async execute ({ userId, avatarFile }: UpdateUserRequest): Promise<void> {
-    const user = await this.userRepository.findById(userId) as User
+  async execute({ userId, avatarFile }: UpdateUserRequest): Promise<void> {
+    const user = (await this.userRepository.findById(userId)) as User
     if (user.avatar) {
       await deleteFile(`./tmp/avatar/${user.avatar}`)
     }

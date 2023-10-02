@@ -4,12 +4,12 @@ import { CategoriesRepository } from '../../repositories/CategoriesRepository.in
 
 @injectable()
 export class ListCategoriesUseCase {
-  constructor (
+  constructor(
     @inject('ICategoriesRepository')
-    private readonly categoriesRepository: CategoriesRepository
+    private readonly categoriesRepository: CategoriesRepository,
   ) {}
 
-  async execute (): Promise<Category[]> {
+  async execute(): Promise<Category[]> {
     const categories = await this.categoriesRepository.list()
     return categories
   }

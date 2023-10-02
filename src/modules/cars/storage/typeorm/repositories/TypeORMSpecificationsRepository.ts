@@ -7,16 +7,16 @@ import { SpecificationRepository } from '@modules/cars/core/repositories/Specifi
 export class TypeORMSpecificationRepository implements SpecificationRepository {
   private readonly repository: Repository<Specification>
 
-  constructor () {
+  constructor() {
     this.repository = AppDataSource.getRepository(Specification)
   }
 
-  async create ({ name, description }: CreateSpecificationDTO): Promise<void> {
+  async create({ name, description }: CreateSpecificationDTO): Promise<void> {
     const specification = this.repository.create({ name, description })
     await this.repository.save(specification)
   }
 
-  async findByName (name: string): Promise<Specification | null> {
+  async findByName(name: string): Promise<Specification | null> {
     const specification = await this.repository.findOneBy({ name })
     return specification
   }

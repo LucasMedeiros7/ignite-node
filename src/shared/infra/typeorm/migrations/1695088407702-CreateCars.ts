@@ -1,7 +1,12 @@
-import { MigrationInterface, QueryRunner, Table, TableForeignKey } from 'typeorm'
+import {
+  MigrationInterface,
+  QueryRunner,
+  Table,
+  TableForeignKey,
+} from 'typeorm'
 
 export class CreateCars1695088407702 implements MigrationInterface {
-  public async up (queryRunner: QueryRunner): Promise<void> {
+  public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
         name: 'cars',
@@ -9,49 +14,49 @@ export class CreateCars1695088407702 implements MigrationInterface {
           {
             name: 'id',
             type: 'uuid',
-            isPrimary: true
+            isPrimary: true,
           },
           {
             name: 'name',
-            type: 'varchar'
+            type: 'varchar',
           },
           {
             name: 'description',
-            type: 'varchar'
+            type: 'varchar',
           },
           {
             name: 'daily_rate',
-            type: 'numeric'
+            type: 'numeric',
           },
           {
             name: 'available',
             type: 'boolean',
-            default: true
+            default: true,
           },
           {
             name: 'license_plate',
-            type: 'varchar'
+            type: 'varchar',
           },
           {
             name: 'fine_amount',
-            type: 'numeric'
+            type: 'numeric',
           },
           {
             name: 'brand',
-            type: 'varchar'
+            type: 'varchar',
           },
           {
             name: 'category_id',
             type: 'uuid',
-            isNullable: true
+            isNullable: true,
           },
           {
             name: 'created_at',
             type: 'timestamp',
-            default: 'now()'
-          }
-        ]
-      })
+            default: 'now()',
+          },
+        ],
+      }),
     )
 
     await queryRunner.createForeignKey(
@@ -62,12 +67,12 @@ export class CreateCars1695088407702 implements MigrationInterface {
         referencedTableName: 'categories',
         referencedColumnNames: ['id'],
         onDelete: 'SET NULL',
-        onUpdate: 'SET NULL'
-      })
+        onUpdate: 'SET NULL',
+      }),
     )
   }
 
-  public async down (queryRunner: QueryRunner): Promise<void> {
+  public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropTable('cars')
   }
 }

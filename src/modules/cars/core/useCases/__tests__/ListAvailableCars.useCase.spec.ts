@@ -18,7 +18,7 @@ describe('Create Car', () => {
     await seedCarsRepository(CARS_QUANTITIES)
   })
 
-  async function seedCarsRepository (carsQuantities: number = 2): Promise<void> {
+  async function seedCarsRepository(carsQuantities = 2): Promise<void> {
     let counter = 0
     while (carsQuantities > counter) {
       await createCarUseCase.execute({
@@ -28,7 +28,7 @@ describe('Create Car', () => {
         license_plate: `FAKE-1234-${counter}`,
         fine_amount: 60 + counter,
         brand: `fake_brand-${counter}`,
-        category_id: `category-${counter}`
+        category_id: `category-${counter}`,
       })
       counter++
     }

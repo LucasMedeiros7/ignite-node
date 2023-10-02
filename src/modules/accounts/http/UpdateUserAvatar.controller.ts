@@ -3,7 +3,7 @@ import { Request, Response } from 'express'
 import { UpdateUserAvatarUseCase } from '../core/usecases/UpdateUserAvatar.useCase'
 
 export class UpdateUserAvatarController {
-  async handle (request: Request, response: Response): Promise<Response> {
+  async handle(request: Request, response: Response): Promise<Response> {
     const { id: userId } = request.user
     const file = request.file as Express.Multer.File
     const updateUserAvatarUseCase = container.resolve(UpdateUserAvatarUseCase)

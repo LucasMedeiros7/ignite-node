@@ -19,7 +19,7 @@ describe('Authenticate User Use Case', () => {
       driver_license: 'any_license',
       name: 'Test User',
       email: 'test@example.com',
-      password: 'password'
+      password: 'password',
     }
     await createUserUseCase.execute(userToCreate)
   })
@@ -27,7 +27,7 @@ describe('Authenticate User Use Case', () => {
   it('should authenticate a user successfully', async () => {
     const authenticationResult = await authenticateUserUseCase.execute({
       email: 'test@example.com',
-      password: 'password'
+      password: 'password',
     })
 
     expect(authenticationResult).toHaveProperty('token')
@@ -38,8 +38,8 @@ describe('Authenticate User Use Case', () => {
     await expect(
       authenticateUserUseCase.execute({
         email: 'nonexistent@example.com',
-        password: 'password'
-      })
+        password: 'password',
+      }),
     ).rejects.toThrow(AppError)
   })
 
@@ -47,8 +47,8 @@ describe('Authenticate User Use Case', () => {
     await expect(
       authenticateUserUseCase.execute({
         email: 'test@example.com',
-        password: 'wrong_password'
-      })
+        password: 'wrong_password',
+      }),
     ).rejects.toThrow(AppError)
   })
 })

@@ -16,11 +16,12 @@ describe('Create Category', () => {
   it('should be able to create a new category', async () => {
     const categoryPayload = {
       name: 'Categoria Qualquer',
-      description: 'Qualquer uma'
+      description: 'Qualquer uma',
     }
 
     await createCategory.execute(categoryPayload)
-    const categoryCreated = await categoriesRepositoryInMemory.findByName('Categoria Qualquer')
+    const categoryCreated =
+      await categoriesRepositoryInMemory.findByName('Categoria Qualquer')
 
     expect(categoryCreated).toHaveProperty('id')
     expect(categoryCreated.name).toBe(categoryPayload.name)
@@ -30,17 +31,17 @@ describe('Create Category', () => {
   it('should not be able to create a new category with an existing name', async () => {
     const existingCategoryPayload = {
       name: 'Categoria Existente',
-      description: 'Já existe'
+      description: 'Já existe',
     }
     const duplicateCategoryPayload = {
       name: 'Categoria Existente',
-      description: 'Tentando duplicar'
+      description: 'Tentando duplicar',
     }
 
     await createCategory.execute(existingCategoryPayload)
 
     await expect(
-      createCategory.execute(duplicateCategoryPayload)
+      createCategory.execute(duplicateCategoryPayload),
     ).rejects.toThrow(AppError)
   })
 })

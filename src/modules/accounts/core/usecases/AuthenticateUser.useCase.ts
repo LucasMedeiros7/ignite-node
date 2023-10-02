@@ -19,12 +19,15 @@ interface AuthUserResponse {
 
 @injectable()
 export class AuthenticateUserUseCase {
-  constructor (
+  constructor(
     @inject('UserRepository')
-    private readonly userRepository: UserRepository
+    private readonly userRepository: UserRepository,
   ) {}
 
-  async execute ({ email, password }: AuthUserRequest): Promise<AuthUserResponse> {
+  async execute({
+    email,
+    password,
+  }: AuthUserRequest): Promise<AuthUserResponse> {
     const user = await this.userRepository.findByEmail(email)
     if (!user) {
       throw new AppError('Email or password incorrect!')
@@ -37,7 +40,7 @@ export class AuthenticateUserUseCase {
     const token = sign({}, secret, { subject: user.id, expiresIn: '1h' })
     const accessToken = {
       user: { name: user.name, email: user.email },
-      token
+      token,
     }
     return accessToken
   }

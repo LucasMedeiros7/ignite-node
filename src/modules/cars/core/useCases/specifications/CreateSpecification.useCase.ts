@@ -9,12 +9,15 @@ interface CreateSpecificationRequest {
 
 @injectable()
 export class CreateSpecificationUseCase {
-  constructor (
+  constructor(
     @inject('SpecificationRepository')
-    private readonly specificationRepository: SpecificationRepository
+    private readonly specificationRepository: SpecificationRepository,
   ) {}
 
-  async execute ({ name, description }: CreateSpecificationRequest): Promise<void> {
+  async execute({
+    name,
+    description,
+  }: CreateSpecificationRequest): Promise<void> {
     const specificationAlreadyExists =
       await this.specificationRepository.findByName(name)
     if (specificationAlreadyExists) {

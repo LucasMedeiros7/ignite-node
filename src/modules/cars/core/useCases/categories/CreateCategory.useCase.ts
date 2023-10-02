@@ -9,13 +9,14 @@ interface CreateCategoryRequest {
 
 @injectable()
 export class CreateCategoryUseCase {
-  constructor (
+  constructor(
     @inject('CategoriesRepository')
-    private readonly categoriesRepository: CategoriesRepository
+    private readonly categoriesRepository: CategoriesRepository,
   ) {}
 
-  async execute ({ name, description }: CreateCategoryRequest): Promise<void> {
-    const categoryAlreadyExists = await this.categoriesRepository.findByName(name)
+  async execute({ name, description }: CreateCategoryRequest): Promise<void> {
+    const categoryAlreadyExists =
+      await this.categoriesRepository.findByName(name)
     if (categoryAlreadyExists) {
       throw new AppError('Category already exists')
     }

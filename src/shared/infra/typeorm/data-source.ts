@@ -12,10 +12,10 @@ const AppDataSource = new DataSource({
   synchronize: false,
   logging: true,
   entities: ['src/**/typeorm/models/*.ts'],
-  migrations: ['src/**/typeorm/migrations/*.ts']
+  migrations: ['src/**/typeorm/migrations/*.ts'],
 })
 
-export async function createConnection (): Promise<void> {
+export async function createConnection(): Promise<void> {
   AppDataSource.setOptions({ host: databaseHost })
     .initialize()
     .then(() => {

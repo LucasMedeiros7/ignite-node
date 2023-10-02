@@ -5,19 +5,19 @@ import { Car } from '@modules/cars/storage/typeorm/models/Car.model'
 export class CarsRepositoryInMemory implements CarsRepository {
   private readonly cars: Car[]
 
-  constructor () {
+  constructor() {
     this.cars = []
   }
 
-  async findAvailables (): Promise<Car[]> {
-    return this.cars.filter(car => car.available)
+  async findAvailables(): Promise<Car[]> {
+    return this.cars.filter((car) => car.available)
   }
 
-  async findByLicensePlate (licensePlate: string): Promise<Car | undefined> {
-    return this.cars.find(car => car.license_plate === licensePlate)
+  async findByLicensePlate(licensePlate: string): Promise<Car | undefined> {
+    return this.cars.find((car) => car.license_plate === licensePlate)
   }
 
-  async create (data: CreateCarDTO): Promise<Car> {
+  async create(data: CreateCarDTO): Promise<Car> {
     const car = new Car()
     Object.assign(car, { ...data })
     this.cars.push(car)

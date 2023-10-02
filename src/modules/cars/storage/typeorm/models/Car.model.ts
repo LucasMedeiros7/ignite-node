@@ -5,37 +5,37 @@ import { Category } from './Category.model'
 @Entity('cars')
 export class Car {
   @PrimaryColumn()
-    id?: string
+  id?: string
 
   @Column()
-    name: string
+  name: string
 
   @Column()
-    description: string
+  description: string
 
   @Column()
-    daily_rate: number
+  daily_rate: number
 
   @Column()
-    available: boolean
+  available: boolean
 
   @Column()
-    license_plate: string
+  license_plate: string
 
   @Column()
-    fine_amount: number
+  fine_amount: number
 
   @Column()
-    brand: string
+  brand: string
 
   @ManyToOne(() => Category)
   @JoinColumn({ name: 'category_id' })
-    category_id: string
+  category_id: string
 
   @Column()
-    created_at: Date
+  created_at: Date
 
-  constructor () {
+  constructor() {
     this.id = this.id ?? uuidv4()
     this.available = true
     this.created_at = new Date()

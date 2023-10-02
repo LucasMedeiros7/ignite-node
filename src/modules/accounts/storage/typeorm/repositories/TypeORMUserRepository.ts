@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import 'reflect-metadata'
 import { Repository } from 'typeorm'
 
@@ -9,11 +10,11 @@ import AppDataSource from '@shared/infra/typeorm/data-source'
 export class TypeORMUserRepository implements UserRepository {
   private readonly repository: Repository<User>
 
-  constructor () {
+  constructor() {
     this.repository = AppDataSource.getRepository(User)
   }
 
-  async create (userData: CreateUserDTO): Promise<void> {
+  async create(userData: CreateUserDTO): Promise<void> {
     const { id, name, email, password, driver_license, avatar } = userData
     const user = this.repository.create({
       id,
@@ -21,17 +22,17 @@ export class TypeORMUserRepository implements UserRepository {
       email,
       password,
       driver_license,
-      avatar
+      avatar,
     })
     await this.repository.save(user)
   }
 
-  async findByEmail (email: string): Promise<User | null> {
+  async findByEmail(email: string): Promise<User | null> {
     const user = await this.repository.findOneBy({ email })
     return user
   }
 
-  async findById (userId: string): Promise<User | null> {
+  async findById(userId: string): Promise<User | null> {
     const user = await this.repository.findOneBy({ id: userId })
     return user
   }

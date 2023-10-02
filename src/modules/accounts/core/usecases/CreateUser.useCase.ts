@@ -7,14 +7,14 @@ import { UserRepository } from '../repositories/UserRepository.interface'
 
 @injectable()
 export class CreateUserUseCase {
-  constructor (
+  constructor(
     @inject('UserRepository')
-    private readonly userRepository: UserRepository
+    private readonly userRepository: UserRepository,
   ) {}
 
-  async execute (userData: CreateUserDTO): Promise<void> {
+  async execute(userData: CreateUserDTO): Promise<void> {
     const userAlreadyExists = await this.userRepository.findByEmail(
-      userData.email
+      userData.email,
     )
     if (userAlreadyExists) {
       throw new AppError('User already exists')

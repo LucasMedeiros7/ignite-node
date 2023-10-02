@@ -1,4 +1,3 @@
-
 import type { Config } from '@jest/types'
 
 const config: Config.InitialOptions = {
@@ -11,8 +10,8 @@ const config: Config.InitialOptions = {
   testMatch: ['**/*.spec.ts'],
   moduleNameMapper: {
     '^@shared/(.*)$': '<rootDir>/src/shared/$1',
-    '^@modules/(.*)$': '<rootDir>/src/modules/$1'
-  }
+    '^@modules/(.*)$': '<rootDir>/src/modules/$1',
+  },
 }
 
 export default config

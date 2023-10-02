@@ -4,12 +4,12 @@ import { CarsRepository } from '../../repositories/CarsRepository'
 
 @injectable()
 export class ListAvailableCarsUseCase {
-  constructor (
+  constructor(
     @inject('CarsRepository')
-    private readonly carsRepository: CarsRepository
-  ) { }
+    private readonly carsRepository: CarsRepository,
+  ) {}
 
-  async execute (): Promise<Car[]> {
+  async execute(): Promise<Car[]> {
     const cars = await this.carsRepository.findAvailables()
     return cars
   }
