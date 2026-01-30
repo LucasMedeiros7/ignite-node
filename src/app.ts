@@ -4,6 +4,7 @@ import './shared/infra/container'
 import 'express-async-errors'
 
 import express, { NextFunction, Request, Response } from 'express'
+import helmet from 'helmet'
 
 import swaggerUi from 'swagger-ui-express'
 import swaggerFile from './swagger.json'
@@ -15,6 +16,7 @@ import { createConnection } from '@shared/infra/typeorm/data-source'
 createConnection()
 
 const app = express()
+app.use(helmet())
 const PORT = process.env.PORT ?? 3333
 
 app.use(express.json())
